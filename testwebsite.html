@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoldMart — Fine Gold & Silver Jewellery</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Art Deco serif + refined sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION BAR
+  ============================================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+
+      <!-- Logo -->
+      <a href="#" class="nav-logo" onclick="showPage('home')">
+        <span class="logo-ornament">✦</span>
+        <span class="logo-text">GoldMart</span>
+        <span class="logo-ornament">✦</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#" onclick="showPage('home')"      class="nav-link" data-page="home">Home</a></li>
+        <li><a href="#" onclick="showPage('products')"  class="nav-link" data-page="products">Products</a></li>
+        <li><a href="#" onclick="showPage('cart')"      class="nav-link cart-link" data-page="cart">
+          Cart <span class="cart-badge" id="cartBadge">0</span>
+        </a></li>
+        <li><a href="#" onclick="showPage('login')"     class="nav-link btn-nav" data-page="login">Sign In</a></li>
+      </ul>
+
+      <!-- Hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       PAGE: HOME
+  ============================================================ -->
+  <main id="page-home" class="page active">
+
+    <!-- Hero Banner -->
+    <section class="hero">
+      <div class="hero-bg-pattern"></div>
+      <div class="hero-content">
+        <p class="hero-sub">Est. 2025 · Certified Hallmarked Jewellery</p>
+        <h1 class="hero-title">
+          Wear the<br /><em>Weight of Gold</em>
+        </h1>
+        <p class="hero-desc">
+          Precision-crafted ornaments. Live market pricing.<br />
+          22K & 18K certified pieces delivered to your door.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-gold" onclick="showPage('products')">Explore Collection</button>
+          <button class="btn-ghost" onclick="scrollToSection('live-price')">Live Rates ↓</button>
+        </div>
+      </div>
+      <div class="hero-graphic">
+        <div class="ring-graphic">
+          <div class="ring r1"></div>
+          <div class="ring r2"></div>
+          <div class="ring r3"></div>
+          <span class="ring-center">✦</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Price Ticker -->
+    <section class="live-price-bar" id="live-price">
+      <div class="ticker-label">LIVE RATES</div>
+      <div class="ticker-items" id="tickerItems">
+        <!-- Populated by JS -->
+      </div>
+      <div class="ticker-label">LIVE RATES</div>
+    </section>
+
+    <!-- Feature Stats -->
+    <section class="stats-row">
+      <div class="stat-item">
+        <span class="stat-num">22K</span>
+        <span class="stat-label">BIS Hallmarked</span>
+      </div>
+      <div class="stat-divider">✦</div>
+      <div class="stat-item">
+        <span class="stat-num">3%</span>
+        <span class="stat-label">GST Inclusive</span>
+      </div>
+      <div class="stat-divider">✦</div>
+      <div class="stat-item">
+        <span class="stat-num">24hr</span>
+        <span class="stat-label">Price Lock</span>
+      </div>
+      <div class="stat-divider">✦</div>
+      <div class="stat-item">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">Certified Pure</span>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="section featured-section">
+      <div class="section-header">
+        <div class="section-ornament">— ✦ —</div>
+        <h2 class="section-title">Featured Collection</h2>
+        <p class="section-sub">Handpicked masterpieces, priced at today's market rates</p>
+      </div>
+      <div class="products-grid" id="featuredGrid">
+        <!-- Populated by JS -->
+      </div>
+      <div class="section-cta">
+        <button class="btn-gold" onclick="showPage('products')">View Full Collection →</button>
+      </div>
+    </section>
+
+    <!-- Why GoldMart -->
+    <section class="section why-section">
+      <div class="section-header">
+        <div class="section-ornament">— ✦ —</div>
+        <h2 class="section-title">The GoldMart Promise</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">⚖</div>
+          <h3>Transparent Pricing</h3>
+          <p>Full price breakdown — weight × purity × live rate + making charges + GST. No hidden costs.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🏅</div>
+          <h3>BIS Hallmarked</h3>
+          <p>Every piece carries a BIS hallmark certifying gold purity as per government standards.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🔒</div>
+          <h3>24-Hour Price Lock</h3>
+          <p>Lock today's gold rate when you add to cart. Protected for 24 hours against market swings.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🚚</div>
+          <h3>Insured Delivery</h3>
+          <p>Full insurance coverage on all shipments. Tamper-evident packaging with live tracking.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+      <div class="newsletter-inner">
+        <h2>Get Rate Alerts in Your Inbox</h2>
+        <p>Be first to know when gold prices dip. Subscribe for daily market updates.</p>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+          <input type="email" placeholder="your@email.com" required />
+          <button type="submit" class="btn-gold">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+  </main><!-- /#page-home -->
+
+
+  <!-- ============================================================
+       PAGE: PRODUCTS
+  ============================================================ -->
+  <main id="page-products" class="page">
+
+    <div class="page-hero-thin">
+      <div class="section-ornament">— ✦ —</div>
+      <h1>Our Collection</h1>
+      <p>Discover pieces crafted from certified 22K and 18K gold, sterling silver, and more.</p>
+    </div>
+
+    <div class="products-layout">
+
+      <!-- Sidebar Filters -->
+      <aside class="filter-panel">
+        <h3 class="filter-title">Refine <span>✦</span></h3>
+
+        <!-- Metal type -->
+        <div class="filter-group">
+          <label class="filter-label">Metal Type</label>
+          <div class="filter-options" id="filterMetal">
+            <label class="filter-check"><input type="checkbox" value="Gold" checked onchange="applyFilters()"> Gold</label>
+            <label class="filter-check"><input type="checkbox" value="Silver" checked onchange="applyFilters()"> Silver</label>
+          </div>
+        </div>
+
+        <!-- Category -->
+        <div class="filter-group">
+          <label class="filter-label">Category</label>
+          <div class="filter-options" id="filterCategory">
+            <label class="filter-check"><input type="checkbox" value="Ring" checked onchange="applyFilters()"> Rings</label>
+            <label class="filter-check"><input type="checkbox" value="Necklace" checked onchange="applyFilters()"> Necklaces</label>
+            <label class="filter-check"><input type="checkbox" value="Bangle" checked onchange="applyFilters()"> Bangles</label>
+            <label class="filter-check"><input type="checkbox" value="Earring" checked onchange="applyFilters()"> Earrings</label>
+            <label class="filter-check"><input type="checkbox" value="Chain" checked onchange="applyFilters()"> Chains</label>
+          </div>
+        </div>
+
+        <!-- Price Range -->
+        <div class="filter-group">
+          <label class="filter-label">Max Price: <strong id="priceDisplay">₹2,00,000</strong></label>
+          <input type="range" id="priceRange" min="1000" max="200000" value="200000"
+                 step="1000" oninput="updatePriceDisplay(this.value); applyFilters()" class="price-slider" />
+        </div>
+
+        <!-- Purity -->
+        <div class="filter-group">
+          <label class="filter-label">Purity</label>
+          <div class="filter-options" id="filterPurity">
+            <label class="filter-check"><input type="checkbox" value="22K" checked onchange="applyFilters()"> 22K</label>
+            <label class="filter-check"><input type="checkbox" value="18K" checked onchange="applyFilters()"> 18K</label>
+            <label class="filter-check"><input type="checkbox" value="925" checked onchange="applyFilters()"> 925 Silver</label>
+          </div>
+        </div>
+
+        <button class="btn-ghost full-w" onclick="resetFilters()">Reset Filters</button>
+      </aside>
+
+      <!-- Products Grid -->
+      <section class="products-main">
+        <div class="products-topbar">
+          <span id="productCount">Showing all products</span>
+          <select id="sortSelect" onchange="applyFilters()" class="sort-select">
+            <option value="default">Sort: Default</option>
+            <option value="price-asc">Price: Low → High</option>
+            <option value="price-desc">Price: High → Low</option>
+            <option value="weight-asc">Weight: Light → Heavy</option>
+          </select>
+        </div>
+        <div class="products-grid" id="productsGrid">
+          <!-- Populated by JS -->
+        </div>
+        <div id="noResults" class="no-results" style="display:none;">
+          <span>✦</span>
+          <p>No pieces match your filters. Try adjusting the criteria above.</p>
+        </div>
+      </section>
+
+    </div>
+
+  </main><!-- /#page-products -->
+
+
+  <!-- ============================================================
+       PAGE: PRODUCT DETAIL
+  ============================================================ -->
+  <main id="page-detail" class="page">
+    <div class="detail-breadcrumb">
+      <a href="#" onclick="showPage('products')">← Back to Collection</a>
+    </div>
+    <div class="detail-layout" id="detailContent">
+      <!-- Populated by JS -->
+    </div>
+  </main><!-- /#page-detail -->
+
+
+  <!-- ============================================================
+       PAGE: CART
+  ============================================================ -->
+  <main id="page-cart" class="page">
+
+    <div class="page-hero-thin">
+      <div class="section-ornament">— ✦ —</div>
+      <h1>Your Cart</h1>
+    </div>
+
+    <div class="cart-layout">
+
+      <!-- Cart Items -->
+      <section class="cart-items-panel">
+        <div id="cartItemsList">
+          <!-- Populated by JS -->
+        </div>
+        <div id="emptyCart" class="empty-cart" style="display:none;">
+          <span class="empty-icon">✦</span>
+          <p>Your cart is empty.</p>
+          <button class="btn-gold" onclick="showPage('products')">Browse Collection</button>
+        </div>
+      </section>
+
+      <!-- Cart Summary -->
+      <aside class="cart-summary" id="cartSummary" style="display:none;">
+        <h3 class="summary-title">Order Summary</h3>
+
+        <!-- Price lock timer -->
+        <div class="price-lock-box">
+          <span class="lock-icon">🔒</span>
+          <div>
+            <strong>Price Locked</strong>
+            <p>Rates guaranteed for: <span id="lockTimer" class="lock-time">23:59:42</span></p>
+          </div>
+        </div>
+
+        <div class="summary-lines" id="summaryLines">
+          <!-- Populated by JS -->
+        </div>
+
+        <div class="summary-total">
+          <span>Grand Total (incl. GST)</span>
+          <span id="grandTotal">₹0</span>
+        </div>
+
+        <button class="btn-gold full-w" onclick="showPage('checkout')" id="checkoutBtn">
+          Proceed to Checkout →
+        </button>
+        <button class="btn-ghost full-w" onclick="showPage('products')" style="margin-top:0.5rem;">
+          Continue Shopping
+        </button>
+      </aside>
+
+    </div>
+
+  </main><!-- /#page-cart -->
+
+
+  <!-- ============================================================
+       PAGE: CHECKOUT
+  ============================================================ -->
+  <main id="page-checkout" class="page">
+
+    <div class="page-hero-thin">
+      <div class="section-ornament">— ✦ —</div>
+      <h1>Checkout</h1>
+      <p>Secure · Insured · Hallmarked</p>
+    </div>
+
+    <div class="checkout-layout">
+
+      <!-- Checkout Form -->
+      <section class="checkout-form-section">
+        <h3>Delivery Details</h3>
+        <form id="checkoutForm" onsubmit="handleCheckout(event)" novalidate>
+
+          <div class="form-group">
+            <label for="co-name">Full Name *</label>
+            <input type="text" id="co-name" placeholder="Ravi Kumar" required />
+            <span class="field-error" id="err-name"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="co-phone">Mobile Number *</label>
+            <input type="tel" id="co-phone" placeholder="98XXXXXXXX" maxlength="10" required />
+            <span class="field-error" id="err-phone"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="co-email">Email Address</label>
+            <input type="email" id="co-email" placeholder="you@email.com" />
+            <span class="field-error" id="err-email"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="co-address">Delivery Address *</label>
+            <textarea id="co-address" rows="3" placeholder="Flat / House No, Street, City" required></textarea>
+            <span class="field-error" id="err-address"></span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="co-pin">PIN Code *</label>
+              <input type="text" id="co-pin" placeholder="400001" maxlength="6" required />
+              <span class="field-error" id="err-pin"></span>
+            </div>
+            <div class="form-group">
+              <label for="co-state">State *</label>
+              <select id="co-state" required>
+                <option value="">Select State</option>
+                <option>Maharashtra</option><option>Gujarat</option><option>Delhi</option>
+                <option>Karnataka</option><option>Tamil Nadu</option><option>Rajasthan</option>
+                <option>West Bengal</option><option>Uttar Pradesh</option><option>Other</option>
+              </select>
+              <span class="field-error" id="err-state"></span>
+            </div>
+          </div>
+
+          <!-- Payment (mock) -->
+          <h3 style="margin-top:2rem;">Payment Method</h3>
+          <div class="payment-options">
+            <label class="payment-opt">
+              <input type="radio" name="payment" value="upi" checked />
+              <span>UPI / PhonePe / GPay</span>
+            </label>
+            <label class="payment-opt">
+              <input type="radio" name="payment" value="card" />
+              <span>Credit / Debit Card</span>
+            </label>
+            <label class="payment-opt">
+              <input type="radio" name="payment" value="netbanking" />
+              <span>Net Banking</span>
+            </label>
+            <label class="payment-opt">
+              <input type="radio" name="payment" value="cod" />
+              <span>Cash on Delivery</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn-gold full-w" style="margin-top:2rem;">
+            Place Order Securely →
+          </button>
+          <p class="checkout-disclaimer">
+            🔒 256-bit SSL encrypted · BIS certified jewellery · Full refund on quality issues
+          </p>
+        </form>
+      </section>
+
+      <!-- Order Summary Sidebar -->
+      <aside class="checkout-summary">
+        <h3>Your Order</h3>
+        <div id="checkoutOrderLines">
+          <!-- Populated by JS -->
+        </div>
+        <div class="summary-total" id="checkoutGrandTotal" style="margin-top:1rem;">
+          <span>Total</span><span>₹0</span>
+        </div>
+        <div class="checkout-rate-note">
+          <span>✦</span> Prices based on today's live gold/silver rates.
+        </div>
+      </aside>
+
+    </div>
+
+  </main><!-- /#page-checkout -->
+
+
+  <!-- ============================================================
+       PAGE: ORDER SUCCESS
+  ============================================================ -->
+  <main id="page-success" class="page">
+    <div class="success-page">
+      <div class="success-ornament">✦</div>
+      <h1>Order Confirmed!</h1>
+      <p>Thank you for choosing GoldMart. Your certified jewellery is being prepared.</p>
+      <div class="success-order-id">Order #<span id="successOrderId">GM-0000</span></div>
+      <p class="success-note">A confirmation email will be sent shortly. Your order is insured and tracked end-to-end.</p>
+      <button class="btn-gold" onclick="showPage('home')">Back to Home</button>
+    </div>
+  </main>
+
+
+  <!-- ============================================================
+       PAGE: LOGIN
+  ============================================================ -->
+  <main id="page-login" class="page">
+    <div class="auth-wrapper">
+      <div class="auth-card">
+        <div class="auth-logo">
+          <span>✦</span> GoldMart <span>✦</span>
+        </div>
+        <h2 id="authTitle">Welcome Back</h2>
+        <p id="authSub">Sign in to track orders and manage your wishlist</p>
+
+        <form id="authForm" onsubmit="handleAuth(event)" novalidate>
+          <div class="form-group" id="nameGroup" style="display:none;">
+            <label>Full Name *</label>
+            <input type="text" id="auth-name" placeholder="Ravi Kumar" />
+          </div>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" id="auth-email" placeholder="you@email.com" required />
+            <span class="field-error" id="err-auth-email"></span>
+          </div>
+          <div class="form-group">
+            <label>Password *</label>
+            <input type="password" id="auth-pass" placeholder="••••••••" required />
+            <span class="field-error" id="err-auth-pass"></span>
+          </div>
+          <button type="submit" class="btn-gold full-w" id="authSubmitBtn">Sign In</button>
+        </form>
+
+        <p class="auth-toggle">
+          <span id="authToggleText">Don't have an account?</span>
+          <a href="#" onclick="toggleAuthMode()" id="authToggleLink">Create Account</a>
+        </p>
+        <p class="auth-note">*This is a demo. No data is stored or transmitted.</p>
+      </div>
+    </div>
+  </main>
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">✦ GoldMart ✦</div>
+        <p>India's transparent gold & silver marketplace. Every price. Every gram. Certified.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Shop</h4>
+        <a href="#" onclick="showPage('products')">All Jewellery</a>
+        <a href="#">Gold Rings</a>
+        <a href="#">Silver Chains</a>
+        <a href="#">Necklaces</a>
+      </div>
+      <div class="footer-links">
+        <h4>Support</h4>
+        <a href="#">Pricing FAQ</a>
+        <a href="#">Return Policy</a>
+        <a href="#">Hallmark Guide</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-rates">
+        <h4>Today's Rates</h4>
+        <div id="footerRates"><!-- Populated by JS --></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 GoldMart · BIS Certified · All prices include 3% GST</p>
+    </div>
+  </footer>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
